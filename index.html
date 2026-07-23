@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATR Team Berimbolo — Gran Canaria</title>
+<meta name="description" content="Club de Jiu Jitsu en Gran Canaria. Clases para adultos y menores. Respeto, disciplina, desarrollo personal y diversión sobre el tatami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="patch" src="assets/img/logo.jpg" alt="ATR Team Berimbolo">
+      <span class="brand-text">ATR TEAM BERIMBOLO<small>JIU JITSU · GRAN CANARIA</small></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="lang-switch">
+        <button data-lang="es" type="button">ES</button>
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="de" type="button">DE</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="index.html" data-nav="inicio" data-i18n="nav_inicio">Inicio</a>
+      <a href="adultos.html" data-nav="adultos" data-i18n="nav_adultos">Adultos</a>
+      <a href="menores.html" data-nav="menores" data-i18n="nav_menores">Menores</a>
+      <a href="horario.html" data-nav="horario" data-i18n="nav_horario">Horario</a>
+      <a href="tarifas.html" data-nav="tarifas" data-i18n="nav_tarifas">Tarifas</a>
+      <a href="equipo.html" data-nav="equipo" data-i18n="nav_equipo">Equipo</a>
+      <a href="noticias.html" data-nav="noticias" data-i18n="nav_noticias">Noticias</a>
+      <a href="galeria.html" data-nav="galeria" data-i18n="nav_galeria">Galería</a>
+      <a href="faq.html" data-nav="faq" data-i18n="nav_faq">Preguntas</a>
+      <a href="prueba.html" class="btn btn-gold btn-sm" data-nav="prueba" data-i18n="nav_prueba">Clase de prueba</a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  (function () {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav.links a').forEach(a => {
+      if (a.getAttribute('href').endsWith(path)) a.classList.add('active');
+    });
+  })();
+</script>
+
+<div class="belt-stripe gold"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section class="hero">
+  <div class="container">
+    <img class="hero-logo" src="assets/img/logo.jpg" alt="ATR Team Berimbolo">
+    <div class="eyebrow" data-i18n="home_eyebrow">ATR Team Berimbolo · Gran Canaria</div>
+    <h1 data-i18n="home_title">JIU JITSU<br>PARA TODA<br>LA FAMILIA</h1>
+    <p class="tagline" data-i18n="home_tagline">Un arte marcial sin golpes, basado en la técnica, el respeto y la constancia. Clases para adultos y para menores, en un ambiente cercano, seguro y abierto a todo el mundo.</p>
+    <div class="hero-actions">
+      <a href="adultos.html" class="btn btn-gold" data-i18n="home_btn_adultos">Clases de adultos</a>
+      <a href="menores.html" class="btn btn-coral" data-i18n="home_btn_menores">Clases de menores</a>
+      <a href="prueba.html" class="btn btn-outline" data-i18n="home_btn_prueba">Pedir clase de prueba</a>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="philosophy_eyebrow">¿Qué es el Jiu Jitsu?</div>
+      <h2 data-i18n="philosophy_title">Más que una técnica de suelo</h2>
+    </div>
+    <p class="lede" data-i18n="philosophy_lede">
+      El Jiu Jitsu Brasileño es un arte marcial de contacto en el que se prioriza la técnica, la palanca y la estrategia por encima de la fuerza bruta. Se entrena en pareja, se pierde, se aprende y se vuelve a intentar — y precisamente por eso es una de las herramientas más completas para el desarrollo personal: enseña a mantener la calma bajo presión, a respetar al compañero que tienes delante y a ser constante con la disciplina, dentro y fuera del tatami. Y, sobre todo, se disfruta.
+    </p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="num" data-i18n="value_respeto_tag">Respeto</div>
+        <h3 data-i18n="value_respeto_title">Compañero, no rival</h3>
+        <p data-i18n="value_respeto_desc">Se entrena con quien tienes delante, no contra él. El respeto por el compañero y por el propio cuerpo es la base de todo lo demás.</p>
+      </div>
+      <div class="value-card">
+        <div class="num" data-i18n="value_disciplina_tag">Disciplina</div>
+        <h3 data-i18n="value_disciplina_title">Constancia sobre el tatami</h3>
+        <p data-i18n="value_disciplina_desc">Los progresos llegan con la repetición y la paciencia. Esa misma disciplina se traslada a la vida diaria, dentro y fuera del club.</p>
+      </div>
+      <div class="value-card">
+        <div class="num" data-i18n="value_desarrollo_tag">Desarrollo</div>
+        <h3 data-i18n="value_desarrollo_title">Confianza y autocontrol</h3>
+        <p data-i18n="value_desarrollo_desc">Aprender a defenderse da seguridad; aprender a perder con deportividad da carácter. El tatami enseña ambas cosas a la vez.</p>
+      </div>
+      <div class="value-card">
+        <div class="num" data-i18n="value_diversion_tag">Diversión</div>
+        <h3 data-i18n="value_diversion_title">Se entrena riendo</h3>
+        <p data-i18n="value_diversion_desc">Por encima de todo, entrenamos porque nos gusta. El ambiente del club es cercano, y eso se nota en cada clase.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="belt-stripe coral"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="audience_eyebrow">Nuestras clases</div>
+      <h2 data-i18n="audience_title">Adultos y menores</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card gold">
+        <div class="band"></div>
+        <div class="body">
+          <div class="tag" data-i18n="adults_tag">Adultos</div>
+          <h3 data-i18n="adults_title">Entrena a cualquier edad</h3>
+          <p data-i18n="adults_desc">Clases de iniciación y de nivel avanzado. Trabajo técnico, preparación física y la opción de competir para quien lo desee.</p>
+          <a href="adultos.html" class="btn btn-outline btn-sm" data-i18n="ver_mas">Ver más →</a>
+        </div>
+      </div>
+      <div class="audience-card coral">
+        <div class="band"></div>
+        <div class="body">
+          <div class="tag" data-i18n="kids_tag">Menores</div>
+          <h3 data-i18n="kids_title">Jiu Jitsu infantil y juvenil</h3>
+          <p data-i18n="kids_desc">Un espacio seguro y supervisado donde niños y adolescentes aprenden respeto, autocontrol y confianza, jugando y entrenando.</p>
+          <a href="menores.html" class="btn btn-outline btn-sm" data-i18n="ver_mas">Ver más →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="pride-note">
+      <div class="flag">🏳️‍🌈</div>
+      <p data-i18n="pride_text"><strong>Un tatami para todos.</strong> ATR Team Berimbolo es un espacio libre de discriminación por orientación sexual, identidad o expresión de género. Todo el mundo es bienvenido a entrenar con respeto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="testimonios_eyebrow">Lo que dicen de nosotros</div>
+      <h2 data-i18n="testimonios_title">Voces del club</h2>
+    </div>
+    <div id="testimonialGrid" class="testimonial-grid"></div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="news_eyebrow">Tablón</div>
+      <h2 data-i18n="news_title">Últimas noticias</h2>
+    </div>
+    <div id="newsPreview" class="news-list">
+      <div class="empty-state" data-i18n="cargando">Cargando…</div>
+    </div>
+    <div style="margin-top:20px"><a href="noticias.html" class="btn btn-outline btn-sm" data-i18n="ver_noticias">Ver todas las noticias →</a></div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="schedule_eyebrow">Horario</div>
+      <h2 data-i18n="schedule_title">Próximas clases</h2>
+    </div>
+    <div id="schedulePreview">
+      <div class="empty-state" data-i18n="cargando">Cargando…</div>
+    </div>
+    <div style="margin-top:20px"><a href="horario.html" class="btn btn-outline btn-sm" data-i18n="ver_horario">Ver horario completo →</a></div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="location_eyebrow">Ubicación</div>
+      <h2 data-i18n="location_title">Entrena con nosotros en ATR Team Berimbolo</h2>
+    </div>
+    <p class="lede" data-i18n="location_lede">Gran Canaria. Aquí abajo tienes el mapa, o pincha el botón para abrirlo en Google Maps.</p>
+    <div class="map-embed">
+      <iframe src="https://www.google.com/maps?q=27.7680389,-15.6072035&z=16&output=embed" loading="lazy" allowfullscreen title="Ubicación de ATR Team Berimbolo en Gran Canaria"></iframe>
+    </div>
+    <div style="margin-top:18px;">
+      <a href="https://maps.app.goo.gl/CgaQXvJxpQVZNumM8" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="como_llegar">📍 Cómo llegar</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <img class="footer-logo" src="assets/img/logo.jpg" alt=""><strong style="color:var(--text-primary)">ATR Team Berimbolo</strong><br>
+        <span data-i18n="footer_direccion">Gran Canaria, España</span><br>
+        <a id="footMapLink" href="https://maps.app.goo.gl/CgaQXvJxpQVZNumM8" target="_blank" rel="noopener" data-i18n="footer_como_llegar">Cómo llegar →</a>
+      </div>
+      <div id="footSocial"></div>
+      <div>
+        © <span id="footYear"></span> <span data-i18n="footer_copyright">Team Berimbolo. Respeto, disciplina y comunidad dentro y fuera del tatami.</span><br>
+        <a href="aviso-legal.html" data-i18n="footer_legal_link">Aviso legal y privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footYear').textContent = new Date().getFullYear();</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cookies.js"></script>
+<script>
+  cargarNoticias('newsPreview', 3);
+  cargarHorario('schedulePreview');
+  cargarTestimonios('testimonialGrid');
+</script>
+</body>
+</html>

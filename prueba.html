@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clase de prueba — ATR Team Berimbolo</title>
+<meta name="description" content="Reserva tu clase de prueba de Jiu Jitsu en ATR Team Berimbolo, Gran Canaria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="patch" src="assets/img/logo.jpg" alt="ATR Team Berimbolo">
+      <span class="brand-text">ATR TEAM BERIMBOLO<small>JIU JITSU · GRAN CANARIA</small></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="lang-switch">
+        <button data-lang="es" type="button">ES</button>
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="de" type="button">DE</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="index.html" data-nav="inicio" data-i18n="nav_inicio">Inicio</a>
+      <a href="adultos.html" data-nav="adultos" data-i18n="nav_adultos">Adultos</a>
+      <a href="menores.html" data-nav="menores" data-i18n="nav_menores">Menores</a>
+      <a href="horario.html" data-nav="horario" data-i18n="nav_horario">Horario</a>
+      <a href="tarifas.html" data-nav="tarifas" data-i18n="nav_tarifas">Tarifas</a>
+      <a href="equipo.html" data-nav="equipo" data-i18n="nav_equipo">Equipo</a>
+      <a href="noticias.html" data-nav="noticias" data-i18n="nav_noticias">Noticias</a>
+      <a href="galeria.html" data-nav="galeria" data-i18n="nav_galeria">Galería</a>
+      <a href="faq.html" data-nav="faq" data-i18n="nav_faq">Preguntas</a>
+      <a href="prueba.html" class="btn btn-gold btn-sm" data-nav="prueba" data-i18n="nav_prueba">Clase de prueba</a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  (function () {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav.links a').forEach(a => {
+      if (a.getAttribute('href').endsWith(path)) a.classList.add('active');
+    });
+  })();
+</script>
+
+<div class="belt-stripe gold"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="trial_eyebrow">Ven a probar</div>
+      <h2 data-i18n="trial_title">Reserva tu clase de prueba</h2>
+    </div>
+    <p class="lede" data-i18n="trial_lede">Sin compromiso. Rellena el formulario y te contactaremos para confirmar día y hora; puedes reservar tu plaza pagando la clase de prueba directamente desde aquí.</p>
+
+    <div class="trial-grid">
+      <div>
+        <div id="trialOffer"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-family:var(--font-display); font-weight:normal; margin-top:0;" data-i18n="trial_form_title">Cuéntanos sobre ti</h3>
+        <form id="formPrueba">
+          <div class="form-row"><label data-i18n="trial_label_name">Nombre completo</label><input type="text" id="trialName" required></div>
+          <div class="form-row"><label data-i18n="trial_label_contact">Teléfono o email de contacto</label><input type="text" id="trialContact" required></div>
+          <div class="form-row">
+            <label data-i18n="trial_label_category">¿Para quién es la clase?</label>
+            <select id="trialCategory">
+              <option value="adultos" data-i18n="adults_tag">Adultos</option>
+              <option value="menores" data-i18n="kids_tag">Menores</option>
+            </select>
+          </div>
+          <div class="form-row"><label data-i18n="trial_label_message">Mensaje (opcional)</label><textarea id="trialMessage" data-i18n-placeholder="trial_placeholder_message" placeholder="Días u horarios que te vengan mejor, experiencia previa, etc."></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;" data-i18n="trial_submit">Enviar solicitud</button>
+          <div id="trialMsg" class="msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <img class="footer-logo" src="assets/img/logo.jpg" alt=""><strong style="color:var(--text-primary)">ATR Team Berimbolo</strong><br>
+        <span data-i18n="footer_direccion">Gran Canaria, España</span><br>
+        <a id="footMapLink" href="https://maps.app.goo.gl/CgaQXvJxpQVZNumM8" target="_blank" rel="noopener" data-i18n="footer_como_llegar">Cómo llegar →</a>
+      </div>
+      <div id="footSocial">
+        <!-- rellenado dinámicamente desde Supabase (tabla "links") por main.js -->
+      </div>
+      <div>
+        © <span id="footYear"></span> <span data-i18n="footer_copyright">Team Berimbolo. Respeto, disciplina y comunidad dentro y fuera del tatami.</span><br>
+        <a href="aviso-legal.html" data-i18n="footer_legal_link">Aviso legal y privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footYear').textContent = new Date().getFullYear();</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cookies.js"></script>
+<script>
+  cargarOfertaPrueba('trialOffer');
+  document.getElementById('formPrueba').addEventListener('submit', (e) => {
+    e.preventDefault();
+    enviarSolicitudPrueba(e.target, 'trialMsg');
+  });
+</script>
+</body>
+</html>

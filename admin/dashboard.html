@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel — ATR Team Berimbolo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/img/favicon.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <h1>Panel del club</h1>
+    <button class="tab active" data-tab="noticias">📰 Noticias</button>
+    <button class="tab" data-tab="horario">🗓️ Horario</button>
+    <button class="tab" data-tab="fotos">🖼️ Fotos</button>
+    <button class="tab" data-tab="videos">▶️ Vídeos</button>
+    <button class="tab" data-tab="prueba">🥋 Clase de prueba</button>
+    <button class="tab" data-tab="tarifas">💶 Tarifas</button>
+    <button class="tab" data-tab="equipo">🧑‍🏫 Equipo</button>
+    <button class="tab" data-tab="palmares">🏆 Palmarés</button>
+    <button class="tab" data-tab="faq">❓ Preguntas</button>
+    <button class="tab" data-tab="testimonios">💬 Testimonios</button>
+    <button class="tab" data-tab="enlaces">🔗 Enlaces</button>
+    <button class="tab" id="logoutBtn" style="margin-top:24px; color:#e08e8e;">⏻ Cerrar sesión</button>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- NOTICIAS -->
+    <section class="admin-panel active" id="panel-noticias">
+      <h2>Publicar noticia</h2>
+      <form id="formNoticia">
+        <div class="form-row"><label>Título</label><input type="text" id="newsTitle" required></div>
+        <div class="form-row"><label>Contenido</label><textarea id="newsBody" required></textarea></div>
+        <div class="form-row"><label>URL de imagen (opcional)</label><input type="url" id="newsImage" placeholder="https://..."></div>
+        <button class="btn btn-gold" type="submit">Publicar</button>
+        <div id="newsMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="newsAdminList"></div>
+    </section>
+
+    <!-- HORARIO -->
+    <section class="admin-panel" id="panel-horario">
+      <h2>Añadir clase al horario</h2>
+      <form id="formHorario">
+        <div class="form-row">
+          <label>Categoría</label>
+          <select id="schedCategory">
+            <option value="adultos">Adultos</option>
+            <option value="menores">Menores</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Día de la semana</label>
+          <select id="schedDay">
+            <option value="1">Lunes</option><option value="2">Martes</option>
+            <option value="3">Miércoles</option><option value="4">Jueves</option>
+            <option value="5">Viernes</option><option value="6">Sábado</option>
+            <option value="0">Domingo</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Hora inicio</label><input type="time" id="schedStart" required></div>
+        <div class="form-row"><label>Hora fin</label><input type="time" id="schedEnd" required></div>
+        <div class="form-row"><label>Nombre de la clase (opcional)</label><input type="text" id="schedLabel" placeholder="Ej. Iniciación, Competición..."></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="schedMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="schedAdminList"></div>
+    </section>
+
+    <!-- FOTOS -->
+    <section class="admin-panel" id="panel-fotos">
+      <h2>Subir foto</h2>
+      <form id="formFoto">
+        <div class="form-row"><label>Archivo de imagen</label><input type="file" id="photoFile" accept="image/*" required></div>
+        <div class="form-row"><label>Pie de foto (opcional)</label><input type="text" id="photoCaption"></div>
+        <button class="btn btn-gold" type="submit">Subir</button>
+        <div id="photoMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="photoAdminList"></div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="admin-panel" id="panel-videos">
+      <h2>Añadir vídeo de YouTube</h2>
+      <form id="formVideo">
+        <div class="form-row"><label>Enlace de YouTube</label><input type="url" id="videoUrl" placeholder="https://youtube.com/watch?v=..." required></div>
+        <div class="form-row"><label>Título (opcional)</label><input type="text" id="videoTitle"></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="videoMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="videoAdminList"></div>
+    </section>
+
+    <!-- CLASE DE PRUEBA -->
+    <section class="admin-panel" id="panel-prueba">
+      <h2>Configurar clase de prueba</h2>
+      <p style="color:var(--text-muted); font-size:14px;">
+        El enlace de pago puede ser un Stripe Payment Link, un PayPal.me o cualquier pasarela que uses.
+        Esta web no procesa el pago directamente: guarda la solicitud del interesado y le muestra el
+        botón para pagar; la confirmación final la haces tú al recibir el pago.
+      </p>
+      <form id="formOferta">
+        <div class="form-row"><label>Precio</label><input type="number" step="0.01" id="offerPrice" required></div>
+        <div class="form-row">
+          <label>Moneda</label>
+          <select id="offerCurrency"><option value="EUR">EUR (€)</option><option value="USD">USD ($)</option></select>
+        </div>
+        <div class="form-row"><label>Descripción</label><textarea id="offerDescription"></textarea></div>
+        <div class="form-row"><label>Enlace de pago</label><input type="url" id="offerPaymentUrl" placeholder="https://buy.stripe.com/... o https://paypal.me/..."></div>
+        <button class="btn btn-gold" type="submit">Guardar</button>
+        <div id="offerMsg" class="msg"></div>
+      </form>
+
+      <h2 style="margin-top:40px;">Solicitudes recibidas</h2>
+      <div class="admin-list" id="trialAdminList"></div>
+    </section>
+
+    <!-- TARIFAS -->
+    <section class="admin-panel" id="panel-tarifas">
+      <h2>Añadir tarifa</h2>
+      <form id="formTarifa">
+        <div class="form-row">
+          <label>Categoría</label>
+          <select id="priceCategory">
+            <option value="adultos">Adultos</option>
+            <option value="menores">Menores</option>
+            <option value="general">General</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Nombre del plan</label><input type="text" id="priceName" placeholder="Ej. Bono mensual" required></div>
+        <div class="form-row"><label>Precio</label><input type="number" step="0.01" id="priceAmount" required></div>
+        <div class="form-row">
+          <label>Periodo</label>
+          <select id="pricePeriod">
+            <option value="/mes">/mes</option>
+            <option value="/trimestre">/trimestre</option>
+            <option value="pago único">pago único</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Descripción (opcional)</label><textarea id="priceDescription"></textarea></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="priceMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="priceAdminList"></div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section class="admin-panel" id="panel-equipo">
+      <h2>Añadir instructor</h2>
+      <form id="formInstructor">
+        <div class="form-row"><label>Nombre</label><input type="text" id="teamName" required></div>
+        <div class="form-row"><label>Grado / cinturón</label><input type="text" id="teamBelt" placeholder="Ej. Cinturón negro 2º grado"></div>
+        <div class="form-row"><label>Biografía breve</label><textarea id="teamBio"></textarea></div>
+        <div class="form-row"><label>URL de foto (opcional)</label><input type="url" id="teamPhoto" placeholder="https://..."></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="teamMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="teamAdminList"></div>
+    </section>
+
+    <!-- PALMARÉS -->
+    <section class="admin-panel" id="panel-palmares">
+      <h2>Añadir resultado / competición</h2>
+      <form id="formPalmares">
+        <div class="form-row"><label>Título</label><input type="text" id="achTitle" placeholder="Ej. Campeonato de Canarias 2026" required></div>
+        <div class="form-row"><label>Fecha (opcional)</label><input type="date" id="achDate"></div>
+        <div class="form-row"><label>Descripción</label><textarea id="achDescription" placeholder="Ej. Oro en la categoría absoluta, alumnos adultos"></textarea></div>
+        <div class="form-row"><label>URL de imagen (opcional)</label><input type="url" id="achImage" placeholder="https://..."></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="achMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="achAdminList"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="admin-panel" id="panel-faq">
+      <h2>Añadir pregunta frecuente</h2>
+      <form id="formFaq">
+        <div class="form-row"><label>Pregunta</label><input type="text" id="faqQuestion" required></div>
+        <div class="form-row"><label>Respuesta</label><textarea id="faqAnswer" required></textarea></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="faqMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="faqAdminList"></div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="admin-panel" id="panel-testimonios">
+      <h2>Añadir testimonio</h2>
+      <form id="formTestimonio">
+        <div class="form-row"><label>Nombre</label><input type="text" id="testName" required></div>
+        <div class="form-row"><label>Rol (opcional)</label><input type="text" id="testRole" placeholder="Ej. Alumno adultos, Madre de alumno..."></div>
+        <div class="form-row"><label>Testimonio</label><textarea id="testQuote" required></textarea></div>
+        <button class="btn btn-gold" type="submit">Añadir</button>
+        <div id="testMsg" class="msg"></div>
+      </form>
+      <div class="admin-list" id="testAdminList"></div>
+    </section>
+
+    <!-- ENLACES -->
+    <section class="admin-panel" id="panel-enlaces">
+      <h2>Enlaces sociales</h2>
+      <p style="color:var(--text-muted); font-size:14px;">Deja un campo vacío y guarda para ocultar ese enlace del sitio.</p>
+      <form id="formEnlaces">
+        <div class="form-row"><label>📷 Instagram</label><input type="url" id="linkInstagram" placeholder="https://instagram.com/..."></div>
+        <div class="form-row"><label>📘 Facebook</label><input type="url" id="linkFacebook" placeholder="https://facebook.com/..."></div>
+        <div class="form-row"><label>▶️ YouTube (canal)</label><input type="url" id="linkYoutube" placeholder="https://youtube.com/@..."></div>
+        <div class="form-row"><label>💬 WhatsApp</label><input type="url" id="linkWhatsapp" placeholder="https://wa.me/34..."></div>
+        <div class="form-row"><label>📍 Google Maps</label><input type="url" id="linkMaps" placeholder="https://maps.app.goo.gl/..."></div>
+        <button class="btn btn-gold" type="submit">Guardar enlaces</button>
+        <div id="linksMsg" class="msg"></div>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

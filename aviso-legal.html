@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso legal y privacidad — ATR Team Berimbolo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="patch" src="assets/img/logo.jpg" alt="ATR Team Berimbolo">
+      <span class="brand-text">ATR TEAM BERIMBOLO<small>JIU JITSU · GRAN CANARIA</small></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="lang-switch">
+        <button data-lang="es" type="button">ES</button>
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="de" type="button">DE</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="index.html" data-nav="inicio" data-i18n="nav_inicio">Inicio</a>
+      <a href="adultos.html" data-nav="adultos" data-i18n="nav_adultos">Adultos</a>
+      <a href="menores.html" data-nav="menores" data-i18n="nav_menores">Menores</a>
+      <a href="horario.html" data-nav="horario" data-i18n="nav_horario">Horario</a>
+      <a href="tarifas.html" data-nav="tarifas" data-i18n="nav_tarifas">Tarifas</a>
+      <a href="equipo.html" data-nav="equipo" data-i18n="nav_equipo">Equipo</a>
+      <a href="noticias.html" data-nav="noticias" data-i18n="nav_noticias">Noticias</a>
+      <a href="galeria.html" data-nav="galeria" data-i18n="nav_galeria">Galería</a>
+      <a href="faq.html" data-nav="faq" data-i18n="nav_faq">Preguntas</a>
+      <a href="prueba.html" class="btn btn-gold btn-sm" data-nav="prueba" data-i18n="nav_prueba">Clase de prueba</a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  (function () {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav.links a').forEach(a => {
+      if (a.getAttribute('href').endsWith(path)) a.classList.add('active');
+    });
+  })();
+</script>
+
+<div class="belt-stripe gold"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section>
+  <div class="container legal-content">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="legal_eyebrow">Legal</div>
+      <h2 data-i18n="legal_title">Aviso legal, privacidad y cookies</h2>
+    </div>
+
+    <div class="panel" style="margin-bottom:24px;">
+      <p style="margin:0;"><strong>Nota:</strong> este texto (y el resto de esta página) está disponible solo en español por ahora; es una plantilla orientativa, no asesoramiento legal. Antes de publicarlo, sustituye los datos entre corchetes por los reales del club y, si tienes dudas, haz que lo revise un gestor o abogado — especialmente por la parte de menores y protección de datos.</p>
+    </div>
+
+    <h2>1. Aviso legal</h2>
+    <p>
+      El presente sitio web es titularidad de <strong>ATR Team Berimbolo</strong>,
+      con NIF/CIF <strong>[NIF/CIF]</strong> y domicilio en <strong>[DIRECCIÓN], Gran Canaria, España</strong>.
+      Puedes contactar con nosotros a través de los canales indicados en el pie de página de esta web.
+    </p>
+    <p>
+      El acceso y uso de este sitio web atribuye la condición de usuario y supone la aceptación de las
+      condiciones aquí descritas. El club se reserva el derecho a modificar el contenido de la web sin
+      previo aviso.
+    </p>
+
+    <h2>2. Protección de datos personales</h2>
+    <p>
+      De acuerdo con el Reglamento (UE) 2016/679 (RGPD) y la LOPDGDD, te informamos de que los datos
+      personales que nos facilites a través del formulario de "clase de prueba" (nombre, contacto y
+      mensaje) se utilizarán únicamente para gestionar tu solicitud y ponernos en contacto contigo,
+      y se conservarán mientras sea necesario para esa finalidad.
+    </p>
+    <p>
+      La base legal para este tratamiento es tu consentimiento, otorgado al enviar el formulario.
+      Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y
+      portabilidad escribiendo a <strong>[EMAIL DE CONTACTO DEL CLUB]</strong>.
+    </p>
+    <p>
+      Los datos se almacenan en Supabase (proveedor de base de datos en la nube). No se ceden a
+      terceros salvo obligación legal.
+    </p>
+    <p>
+      En el caso de menores de edad, la inscripción y el tratamiento de sus datos requieren
+      la autorización expresa de su padre, madre o tutor legal, tal y como se recoge en el
+      formulario de autorización descargable disponible en la sección de menores.
+    </p>
+
+    <h2>3. Política de cookies</h2>
+    <p>
+      Esta web utiliza únicamente cookies técnicas necesarias para su funcionamiento: una cookie
+      propia para recordar que has cerrado el aviso de cookies, y las cookies de sesión que genera
+      Supabase cuando el personal del club inicia sesión en el panel de administración. No utilizamos
+      cookies de publicidad ni de analítica de terceros.
+    </p>
+    <p>
+      Los vídeos incrustados de YouTube se sirven en modo de privacidad reforzada
+      (youtube-nocookie.com), que no instala cookies de seguimiento hasta que el usuario decide
+      reproducir el vídeo.
+    </p>
+
+    <h2>4. Propiedad intelectual</h2>
+    <p>
+      Las fotografías, textos y vídeos publicados en esta web pertenecen a ATR Team Berimbolo
+      o se publican con el consentimiento de las personas que aparecen en ellos. Queda prohibida su
+      reproducción sin autorización previa.
+    </p>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <img class="footer-logo" src="assets/img/logo.jpg" alt=""><strong style="color:var(--text-primary)">ATR Team Berimbolo</strong><br>
+        <span data-i18n="footer_direccion">Gran Canaria, España</span><br>
+        <a id="footMapLink" href="https://maps.app.goo.gl/CgaQXvJxpQVZNumM8" target="_blank" rel="noopener" data-i18n="footer_como_llegar">Cómo llegar →</a>
+      </div>
+      <div id="footSocial">
+        <!-- rellenado dinámicamente desde Supabase (tabla "links") por main.js -->
+      </div>
+      <div>
+        © <span id="footYear"></span> <span data-i18n="footer_copyright">Team Berimbolo. Respeto, disciplina y comunidad dentro y fuera del tatami.</span><br>
+        <a href="aviso-legal.html" data-i18n="footer_legal_link">Aviso legal y privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footYear').textContent = new Date().getFullYear();</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cookies.js"></script>
+</body>
+</html>

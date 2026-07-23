@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas frecuentes — ATR Team Berimbolo</title>
+<meta name="description" content="Preguntas frecuentes sobre las clases de Jiu Jitsu en ATR Team Berimbolo, Gran Canaria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <img class="patch" src="assets/img/logo.jpg" alt="ATR Team Berimbolo">
+      <span class="brand-text">ATR TEAM BERIMBOLO<small>JIU JITSU · GRAN CANARIA</small></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div class="lang-switch">
+        <button data-lang="es" type="button">ES</button>
+        <button data-lang="en" type="button">EN</button>
+        <button data-lang="de" type="button">DE</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="index.html" data-nav="inicio" data-i18n="nav_inicio">Inicio</a>
+      <a href="adultos.html" data-nav="adultos" data-i18n="nav_adultos">Adultos</a>
+      <a href="menores.html" data-nav="menores" data-i18n="nav_menores">Menores</a>
+      <a href="horario.html" data-nav="horario" data-i18n="nav_horario">Horario</a>
+      <a href="tarifas.html" data-nav="tarifas" data-i18n="nav_tarifas">Tarifas</a>
+      <a href="equipo.html" data-nav="equipo" data-i18n="nav_equipo">Equipo</a>
+      <a href="noticias.html" data-nav="noticias" data-i18n="nav_noticias">Noticias</a>
+      <a href="galeria.html" data-nav="galeria" data-i18n="nav_galeria">Galería</a>
+      <a href="faq.html" data-nav="faq" data-i18n="nav_faq">Preguntas</a>
+      <a href="prueba.html" class="btn btn-gold btn-sm" data-nav="prueba" data-i18n="nav_prueba">Clase de prueba</a>
+    </nav>
+  </div>
+</header>
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  (function () {
+    const path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav.links a').forEach(a => {
+      if (a.getAttribute('href').endsWith(path)) a.classList.add('active');
+    });
+  })();
+</script>
+
+<div class="belt-stripe coral"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="faq_eyebrow">Ayuda</div>
+      <h2 data-i18n="faq_title">Preguntas frecuentes</h2>
+    </div>
+    <div id="faqList" class="faq-list"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <img class="footer-logo" src="assets/img/logo.jpg" alt=""><strong style="color:var(--text-primary)">ATR Team Berimbolo</strong><br>
+        <span data-i18n="footer_direccion">Gran Canaria, España</span><br>
+        <a id="footMapLink" href="https://maps.app.goo.gl/CgaQXvJxpQVZNumM8" target="_blank" rel="noopener" data-i18n="footer_como_llegar">Cómo llegar →</a>
+      </div>
+      <div id="footSocial"></div>
+      <div>
+        © <span id="footYear"></span> <span data-i18n="footer_copyright">Team Berimbolo. Respeto, disciplina y comunidad dentro y fuera del tatami.</span><br>
+        <a href="aviso-legal.html" data-i18n="footer_legal_link">Aviso legal y privacidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('footYear').textContent = new Date().getFullYear();</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/cookies.js"></script>
+<script>cargarFaqs('faqList');</script>
+</body>
+</html>
