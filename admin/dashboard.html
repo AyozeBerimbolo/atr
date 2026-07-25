@@ -19,6 +19,7 @@
     <button class="tab" data-tab="fotos">🖼️ Fotos</button>
     <button class="tab" data-tab="videos">▶️ Vídeos</button>
     <button class="tab" data-tab="prueba">🥋 Clase de prueba</button>
+    <button class="tab" data-tab="particulares">🧑‍🎓 Particulares</button>
     <button class="tab" data-tab="tarifas">💶 Tarifas</button>
     <button class="tab" data-tab="equipo">🧑‍🏫 Equipo</button>
     <button class="tab" data-tab="palmares">🏆 Palmarés</button>
@@ -118,6 +119,29 @@
 
       <h2 style="margin-top:40px;">Solicitudes recibidas</h2>
       <div class="admin-list" id="trialAdminList"></div>
+    </section>
+
+    <!-- CLASES PARTICULARES -->
+    <section class="admin-panel" id="panel-particulares">
+      <h2>Configurar clases particulares</h2>
+      <p style="color:var(--text-muted); font-size:14px;">
+        Igual que la clase de prueba: el enlace de pago es opcional (Stripe Payment Link, PayPal.me...).
+        La web guarda la solicitud y muestra el botón de pago si lo rellenas; la confirmación la haces tú.
+      </p>
+      <form id="formOfertaParticular">
+        <div class="form-row"><label>Precio</label><input type="number" step="0.01" id="privateOfferPrice" required></div>
+        <div class="form-row">
+          <label>Moneda</label>
+          <select id="privateOfferCurrency"><option value="EUR">EUR (€)</option><option value="USD">USD ($)</option></select>
+        </div>
+        <div class="form-row"><label>Descripción</label><textarea id="privateOfferDescription"></textarea></div>
+        <div class="form-row"><label>Enlace de pago</label><input type="url" id="privateOfferPaymentUrl" placeholder="https://buy.stripe.com/... o https://paypal.me/..."></div>
+        <button class="btn btn-gold" type="submit">Guardar</button>
+        <div id="privateOfferMsg" class="msg"></div>
+      </form>
+
+      <h2 style="margin-top:40px;">Solicitudes recibidas</h2>
+      <div class="admin-list" id="privateAdminList"></div>
     </section>
 
     <!-- TARIFAS -->
