@@ -14,7 +14,7 @@ const TRANSLATIONS = {
     nav_prueba: 'Clase de prueba',
 
     home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
-    home_title: 'JIU JITSU<br>PARA TODA<br>LA FAMILIA',
+    home_title: 'JIU JITSU<br>PARA TODA<br>LA FAMILIA<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'Un arte marcial sin golpes, basado en la técnica, el respeto y la constancia. Clases para adultos y para menores, en un ambiente cercano, seguro y abierto a todo el mundo.',
     home_btn_adultos: 'Clases de adultos', home_btn_menores: 'Clases de menores', home_btn_prueba: 'Pedir clase de prueba',
 
@@ -102,7 +102,7 @@ const TRANSLATIONS = {
     nav_prueba: 'Trial class',
 
     home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
-    home_title: 'JIU JITSU<br>FOR THE WHOLE<br>FAMILY',
+    home_title: 'JIU JITSU<br>FOR THE WHOLE<br>FAMILY<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'A martial art with no striking, built on technique, respect and consistency. Classes for adults and children, in a friendly, safe space open to everyone.',
     home_btn_adultos: 'Adult classes', home_btn_menores: 'Kids classes', home_btn_prueba: 'Book a trial class',
 
@@ -190,7 +190,7 @@ const TRANSLATIONS = {
     nav_prueba: 'Probetraining',
 
     home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
-    home_title: 'JIU JITSU<br>FÜR DIE GANZE<br>FAMILIE',
+    home_title: 'JIU JITSU<br>FÜR DIE GANZE<br>FAMILIE<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'Eine Kampfkunst ohne Schläge, die auf Technik, Respekt und Beständigkeit setzt. Kurse für Erwachsene und Kinder, in einer freundlichen, sicheren Umgebung, offen für alle.',
     home_btn_adultos: 'Kurse für Erwachsene', home_btn_menores: 'Kurse für Kinder', home_btn_prueba: 'Probetraining buchen',
 
