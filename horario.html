@@ -60,11 +60,18 @@
       <h2 data-i18n="schedule_page_title">Todas las clases</h2>
     </div>
 
-    <h3 style="font-family:var(--font-display); font-weight:normal; color:var(--belt-gold);" data-i18n="schedule_adults">Adultos</h3>
-    <div id="scheduleAdultos"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:8px;">
+      <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-muted);">
+        <span style="width:14px; height:14px; border-radius:3px; background:var(--cyan); display:inline-block;"></span>
+        <span data-i18n="schedule_adults">Adultos</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-muted);">
+        <span style="width:14px; height:14px; border-radius:3px; background:var(--cyan-soft); display:inline-block;"></span>
+        <span data-i18n="schedule_kids">Menores</span>
+      </div>
+    </div>
 
-    <h3 style="font-family:var(--font-display); font-weight:normal; color:var(--belt-coral); margin-top:36px;" data-i18n="schedule_kids">Menores</h3>
-    <div id="scheduleMenores"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
+    <div id="scheduleSemana"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
   </div>
 </section>
 
@@ -95,8 +102,7 @@
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/cookies.js"></script>
 <script>
-  cargarHorario('scheduleAdultos', 'adultos');
-  cargarHorario('scheduleMenores', 'menores');
+  cargarHorario('scheduleSemana');
 </script>
 </body>
 </html>
