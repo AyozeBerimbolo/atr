@@ -214,6 +214,54 @@ async function borrarSolicitud(id) {
 }
 
 // ============================================================
+// CLASES PARTICULARES — configuración (fila única) + solicitudes
+// ============================================================
+async function cargarOfertaParticularAdmin() {
+  const { data, error } = await supabaseClient.from('private_offer').select('*').eq('id', 1).single();
+  if (error || !data) return;
+  document.getElementById('privateOfferPrice').value = data.price;
+  document.getElementById('privateOfferCurrency').value = data.currency;
+  document.getElementById('privateOfferDescription').value = data.description || '';
+  document.getElementById('privateOfferPaymentUrl').value = data.payment_url || '';
+}
+document.getElementById('formOfertaParticular').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const registro = {
+    id: 1,
+    price: parseFloat(document.getElementById('privateOfferPrice').value),
+    currency: document.getElementById('privateOfferCurrency').value,
+    description: document.getElementById('privateOfferDescription').value || null,
+    payment_url: document.getElementById('privateOfferPaymentUrl').value || null,
+  };
+  const { error } = await supabaseClient.from('private_offer').upsert(registro, { onConflict: 'id' });
+  if (error) return mostrarMsg('privateOfferMsg', 'Error: ' + error.message, true);
+  mostrarMsg('privateOfferMsg', 'Configuración guardada.');
+});
+
+async function refrescarSolicitudesParticularAdmin() {
+  const el = document.getElementById('privateAdminList');
+  const { data, error } = await supabaseClient.from('private_requests').select('*').order('created_at', { ascending: false });
+  if (error) { el.innerHTML = ''; return; }
+  el.innerHTML = data.map(r => `
+    <div class="row">
+      <span class="grow"><strong>${r.full_name}</strong> · ${r.contact}${r.message ? ' · ' + r.message : ''}</span>
+      <select onchange="cambiarEstadoSolicitudParticular('${r.id}', this.value)">
+        ${ESTADOS_SOLICITUD.map(s => `<option value="${s}" ${s === r.status ? 'selected' : ''}>${s}</option>`).join('')}
+      </select>
+      <button class="btn btn-danger btn-sm" onclick="borrarSolicitudParticular('${r.id}')">Borrar</button>
+    </div>
+  `).join('') || '<div class="empty-state">Sin solicitudes todavía.</div>';
+}
+async function cambiarEstadoSolicitudParticular(id, status) {
+  await supabaseClient.from('private_requests').update({ status }).eq('id', id);
+}
+async function borrarSolicitudParticular(id) {
+  if (!confirm('¿Borrar esta solicitud?')) return;
+  await supabaseClient.from('private_requests').delete().eq('id', id);
+  refrescarSolicitudesParticularAdmin();
+}
+
+// ============================================================
 // TARIFAS
 // ============================================================
 async function refrescarTarifasAdmin() {
@@ -415,6 +463,8 @@ refrescarFotosAdmin();
 refrescarVideosAdmin();
 cargarOfertaAdmin();
 refrescarSolicitudesAdmin();
+cargarOfertaParticularAdmin();
+refrescarSolicitudesParticularAdmin();
 refrescarTarifasAdmin();
 refrescarEquipoAdmin();
 refrescarPalmaresAdmin();

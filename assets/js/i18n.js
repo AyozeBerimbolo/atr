@@ -72,12 +72,17 @@ const TRANSLATIONS = {
     pricing_lede: 'Estas son nuestras tarifas actuales. Si tienes dudas sobre bonos, hermanos o descuentos, escríbenos por Instagram, Facebook o WhatsApp.',
 
     trial_eyebrow: 'Ven a probar', trial_title: 'Reserva tu clase de prueba',
-    trial_lede: 'Sin compromiso. Rellena el formulario y te contactaremos para confirmar día y hora; puedes reservar tu plaza pagando la clase de prueba directamente desde aquí.',
+    trial_lede: 'Sin compromiso. Rellena el formulario y te contactaremos para confirmar día y hora; puedes reservar la clase de prueba directamente desde aquí.',
     trial_form_title: 'Cuéntanos sobre ti',
     trial_label_name: 'Nombre completo', trial_label_contact: 'Teléfono o email de contacto',
     trial_label_category: '¿Para quién es la clase?', trial_label_message: 'Mensaje (opcional)',
     trial_placeholder_message: 'Días u horarios que te vengan mejor, experiencia previa, etc.',
     trial_submit: 'Enviar solicitud',
+
+    private_eyebrow: 'A tu ritmo', private_title: 'Clases particulares',
+    private_lede: 'Sesiones 1 a 1 con un instructor, en el horario que mejor te venga. Rellena el formulario y te contactaremos para acordar día y hora.',
+    private_form_title: 'Cuéntanos sobre ti',
+    private_placeholder_message: 'Días u horarios que te vengan mejor, objetivo de las clases, etc.',
 
     team_eyebrow: 'Nuestro equipo', team_title: 'Instructores',
     team_affiliation: 'Equipo dirigido por el Prof. Ayoze Ramírez, afiliado a Team Rumen Caraballo.',
@@ -167,6 +172,11 @@ const TRANSLATIONS = {
     trial_placeholder_message: 'Days or times that work best for you, previous experience, etc.',
     trial_submit: 'Send request',
 
+    private_eyebrow: 'At your pace', private_title: 'Private classes',
+    private_lede: '1-to-1 sessions with an instructor, at whatever time suits you best. Fill in the form and we\'ll contact you to arrange a day and time.',
+    private_form_title: 'Tell us about yourself',
+    private_placeholder_message: 'Days or times that work best for you, what you\'d like to focus on, etc.',
+
     team_eyebrow: 'Our team', team_title: 'Instructors',
     team_affiliation: 'Team led by Prof. Ayoze Ramírez, affiliated with Team Rumen Caraballo.',
     achievements_eyebrow: 'Achievements', achievements_title: 'Competitions and results',
@@ -254,6 +264,11 @@ const TRANSLATIONS = {
     trial_label_category: 'Für wen ist der Kurs?', trial_label_message: 'Nachricht (optional)',
     trial_placeholder_message: 'Passende Tage oder Uhrzeiten, Vorerfahrung usw.',
     trial_submit: 'Anfrage senden',
+
+    private_eyebrow: 'In deinem Tempo', private_title: 'Einzelstunden',
+    private_lede: '1-zu-1-Einheiten mit einem Trainer, zu der Zeit, die dir am besten passt. Fülle das Formular aus, wir melden uns, um Tag und Uhrzeit abzustimmen.',
+    private_form_title: 'Erzähl uns von dir',
+    private_placeholder_message: 'Passende Tage oder Uhrzeiten, dein Ziel für die Stunden usw.',
 
     team_eyebrow: 'Unser Team', team_title: 'Trainer',
     team_affiliation: 'Team unter der Leitung von Prof. Ayoze Ramírez, angegliedert an Team Rumen Caraballo.',

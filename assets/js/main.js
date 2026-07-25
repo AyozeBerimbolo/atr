@@ -171,7 +171,7 @@ async function cargarOfertaPrueba(targetId) {
   }
   el.innerHTML = `
     <div class="panel">
-      <div class="price" style="font-family:var(--font-display); font-size:36px; color:var(--belt-gold);">
+      <div class="price" style="font-family:var(--font-display); font-size:36px; color:var(--cyan);">
         ${formatearPrecio(data.price, data.currency)}
         <span style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); font-weight:normal;"> / clase de prueba</span>
       </div>
@@ -194,6 +194,44 @@ async function enviarSolicitudPrueba(formEl, msgId) {
     return false;
   }
   msg.textContent = '¡Solicitud enviada! Te contactaremos en breve para confirmar el horario.';
+  msg.className = 'msg ok';
+  formEl.reset();
+  return true;
+}
+
+// ---------- CLASES PARTICULARES ----------
+async function cargarOfertaParticular(targetId) {
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  const { data, error } = await supabaseClient.from('private_offer').select('*').eq('id', 1).single();
+  if (error || !data) {
+    el.innerHTML = '<div class="empty-state">Escríbenos para reservar una clase particular.</div>';
+    return;
+  }
+  el.innerHTML = `
+    <div class="panel">
+      <div class="price" style="font-family:var(--font-display); font-size:36px; color:var(--cyan);">
+        ${formatearPrecio(data.price, data.currency)}
+        <span style="font-family:var(--font-body); font-size:14px; color:var(--text-muted); font-weight:normal;"> / clase particular</span>
+      </div>
+      <p style="color:var(--text-muted)">${escapeHtml(data.description || '')}</p>
+      ${data.payment_url ? `<a href="${data.payment_url}" target="_blank" rel="noopener" class="btn btn-gold">Reservar y pagar →</a>` : ''}
+    </div>
+  `;
+}
+
+async function enviarSolicitudParticular(formEl, msgId) {
+  const full_name = formEl.querySelector('#privateName').value;
+  const contact = formEl.querySelector('#privateContact').value;
+  const message = formEl.querySelector('#privateMessage').value || null;
+  const { error } = await supabaseClient.from('private_requests').insert({ full_name, contact, message });
+  const msg = document.getElementById(msgId);
+  if (error) {
+    msg.textContent = 'No se pudo enviar la solicitud. Inténtalo de nuevo o escríbenos directamente.';
+    msg.className = 'msg error';
+    return false;
+  }
+  msg.textContent = '¡Solicitud enviada! Te contactaremos en breve para acordar día y hora.';
   msg.className = 'msg ok';
   formEl.reset();
   return true;
