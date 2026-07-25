@@ -59,11 +59,40 @@
       <div class="eyebrow" data-i18n="pricing_eyebrow">Tarifas</div>
       <h2 data-i18n="pricing_title">Cuotas del club</h2>
     </div>
-    <p class="lede" data-i18n="pricing_lede">Estas son nuestras tarifas actuales.</p>
+    <p class="lede" data-i18n="pricing_lede">Estas son nuestras tarifas actuales. Si tienes dudas sobre bonos, hermanos o descuentos, escríbenos por Instagram, Facebook o WhatsApp.</p>
     <div id="pricingGrid" class="pricing-grid"><div class="empty-state" data-i18n="cargando">Cargando tarifas…</div></div>
 
     <div style="margin-top:32px;">
       <a href="prueba.html" class="btn btn-gold" data-i18n="home_btn_prueba">Pedir clase de prueba →</a>
+    </div>
+  </div>
+</section>
+
+<div class="belt-stripe coral"><span class="base"></span><span class="stripe"></span><span class="base"></span></div>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" data-i18n="private_eyebrow">A tu ritmo</div>
+      <h2 data-i18n="private_title">Clases particulares</h2>
+    </div>
+    <p class="lede" data-i18n="private_lede">Sesiones 1 a 1 con un instructor, en el horario que mejor te venga. Rellena el formulario y te contactaremos para acordar día y hora.</p>
+
+    <div class="trial-grid">
+      <div>
+        <div id="privateOffer"><div class="empty-state" data-i18n="cargando">Cargando…</div></div>
+      </div>
+
+      <div class="panel">
+        <h3 style="font-family:var(--font-display); font-weight:normal; margin-top:0;" data-i18n="private_form_title">Cuéntanos sobre ti</h3>
+        <form id="formParticular">
+          <div class="form-row"><label data-i18n="trial_label_name">Nombre completo</label><input type="text" id="privateName" required></div>
+          <div class="form-row"><label data-i18n="trial_label_contact">Teléfono o email de contacto</label><input type="text" id="privateContact" required></div>
+          <div class="form-row"><label data-i18n="trial_label_message">Mensaje (opcional)</label><textarea id="privateMessage" data-i18n-placeholder="private_placeholder_message" placeholder="Días u horarios que te vengan mejor, objetivo de las clases, etc."></textarea></div>
+          <button type="submit" class="btn btn-gold" style="width:100%;" data-i18n="trial_submit">Enviar solicitud</button>
+          <div id="privateMsg" class="msg"></div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -94,6 +123,13 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/i18n.js"></script>
 <script src="assets/js/cookies.js"></script>
-<script>cargarTarifas('pricingGrid');</script>
+<script>
+  cargarTarifas('pricingGrid');
+  cargarOfertaParticular('privateOffer');
+  document.getElementById('formParticular').addEventListener('submit', (e) => {
+    e.preventDefault();
+    enviarSolicitudParticular(e.target, 'privateMsg');
+  });
+</script>
 </body>
 </html>
