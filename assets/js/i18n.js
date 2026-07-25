@@ -13,7 +13,7 @@ const TRANSLATIONS = {
     nav_noticias: 'Noticias', nav_galeria: 'Galería', nav_faq: 'Preguntas',
     nav_prueba: 'Clase de prueba',
 
-    home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
+    home_eyebrow: 'ATR Team Berimbolo · El Tablero, Maspalomas',
     home_title: 'JIU JITSU<br>PARA TODA<br>LA FAMILIA<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'Un arte marcial sin golpes, basado en la técnica, el respeto y la constancia. Clases para adultos y para menores, en un ambiente cercano, seguro y abierto a todo el mundo.',
     home_btn_adultos: 'Clases de adultos', home_btn_menores: 'Clases de menores', home_btn_prueba: 'Pedir clase de prueba',
@@ -39,7 +39,7 @@ const TRANSLATIONS = {
     news_eyebrow: 'Tablón', news_title: 'Últimas noticias', ver_noticias: 'Ver todas las noticias →',
     schedule_eyebrow: 'Horario', schedule_title: 'Próximas clases', ver_horario: 'Ver horario completo →',
     location_eyebrow: 'Ubicación', location_title: 'Entrena con nosotros en ATR Team Berimbolo',
-    location_lede: 'Gran Canaria. Aquí abajo tienes el mapa, o pincha el botón para abrirlo en Google Maps.',
+    location_lede: 'El Tablero, Maspalomas. Aquí abajo tienes el mapa, o pincha el botón para abrirlo en Google Maps.',
     como_llegar: '📍 Cómo llegar',
 
     adults_hero_eyebrow: 'Adultos', adults_hero_title: 'ENTRENA<br>A CUALQUIER<br>EDAD',
@@ -87,7 +87,7 @@ const TRANSLATIONS = {
 
     legal_eyebrow: 'Legal', legal_title: 'Aviso legal, privacidad y cookies',
 
-    footer_direccion: 'Gran Canaria, España',
+    footer_direccion: 'El Tablero, Maspalomas',
     footer_como_llegar: 'Cómo llegar →',
     footer_copyright: 'Team Berimbolo. Respeto, disciplina y comunidad dentro y fuera del tatami.',
     footer_legal_link: 'Aviso legal y privacidad',
@@ -101,7 +101,7 @@ const TRANSLATIONS = {
     nav_noticias: 'News', nav_galeria: 'Gallery', nav_faq: 'FAQ',
     nav_prueba: 'Trial class',
 
-    home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
+    home_eyebrow: 'ATR Team Berimbolo · El Tablero, Maspalomas',
     home_title: 'JIU JITSU<br>FOR THE WHOLE<br>FAMILY<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'A martial art with no striking, built on technique, respect and consistency. Classes for adults and children, in a friendly, safe space open to everyone.',
     home_btn_adultos: 'Adult classes', home_btn_menores: 'Kids classes', home_btn_prueba: 'Book a trial class',
@@ -127,7 +127,7 @@ const TRANSLATIONS = {
     news_eyebrow: 'Noticeboard', news_title: 'Latest news', ver_noticias: 'See all news →',
     schedule_eyebrow: 'Schedule', schedule_title: 'Upcoming classes', ver_horario: 'See full schedule →',
     location_eyebrow: 'Location', location_title: 'Train with us at ATR Team Berimbolo',
-    location_lede: 'Gran Canaria. You can see the map below, or tap the button to open it in Google Maps.',
+    location_lede: 'El Tablero, Maspalomas. You can see the map below, or tap the button to open it in Google Maps.',
     como_llegar: '📍 Get directions',
 
     adults_hero_eyebrow: 'Adults', adults_hero_title: 'TRAIN AT<br>ANY<br>AGE',
@@ -175,7 +175,7 @@ const TRANSLATIONS = {
 
     legal_eyebrow: 'Legal', legal_title: 'Legal notice, privacy and cookies',
 
-    footer_direccion: 'Gran Canaria, Spain',
+    footer_direccion: 'El Tablero, Maspalomas',
     footer_como_llegar: 'Get directions →',
     footer_copyright: 'Team Berimbolo. Respect, discipline and community, on and off the mats.',
     footer_legal_link: 'Legal notice and privacy',
@@ -189,7 +189,7 @@ const TRANSLATIONS = {
     nav_noticias: 'Neuigkeiten', nav_galeria: 'Galerie', nav_faq: 'FAQ',
     nav_prueba: 'Probetraining',
 
-    home_eyebrow: 'ATR Team Berimbolo · Gran Canaria',
+    home_eyebrow: 'ATR Team Berimbolo · El Tablero, Maspalomas',
     home_title: 'JIU JITSU<br>FÜR DIE GANZE<br>FAMILIE<br><span class="hero-location">EL TABLERO, MASPALOMAS</span>',
     home_tagline: 'Eine Kampfkunst ohne Schläge, die auf Technik, Respekt und Beständigkeit setzt. Kurse für Erwachsene und Kinder, in einer freundlichen, sicheren Umgebung, offen für alle.',
     home_btn_adultos: 'Kurse für Erwachsene', home_btn_menores: 'Kurse für Kinder', home_btn_prueba: 'Probetraining buchen',
@@ -215,7 +215,7 @@ const TRANSLATIONS = {
     news_eyebrow: 'Anschlagbrett', news_title: 'Neuigkeiten', ver_noticias: 'Alle Neuigkeiten ansehen →',
     schedule_eyebrow: 'Stundenplan', schedule_title: 'Nächste Kurse', ver_horario: 'Ganzen Stundenplan ansehen →',
     location_eyebrow: 'Standort', location_title: 'Trainiere mit uns bei ATR Team Berimbolo',
-    location_lede: 'Gran Canaria. Die Karte findest du weiter unten, oder öffne sie über den Button direkt in Google Maps.',
+    location_lede: 'El Tablero, Maspalomas. Die Karte findest du weiter unten, oder öffne sie über den Button direkt in Google Maps.',
     como_llegar: '📍 Route anzeigen',
 
     adults_hero_eyebrow: 'Erwachsene', adults_hero_title: 'TRAINING IN<br>JEDEM<br>ALTER',
@@ -263,7 +263,7 @@ const TRANSLATIONS = {
 
     legal_eyebrow: 'Rechtliches', legal_title: 'Impressum, Datenschutz und Cookies',
 
-    footer_direccion: 'Gran Canaria, Spanien',
+    footer_direccion: 'El Tablero, Maspalomas',
     footer_como_llegar: 'Route anzeigen →',
     footer_copyright: 'Team Berimbolo. Respekt, Disziplin und Gemeinschaft, auf und neben der Matte.',
     footer_legal_link: 'Impressum und Datenschutz',
