@@ -48,30 +48,37 @@ async function cargarNoticias(targetId, limite = null) {
   `).join('');
 }
 
-// ---------- HORARIO ----------
+// ---------- HORARIO (vista semanal en columnas) ----------
+const ORDEN_DIAS_SEMANA = [1, 2, 3, 4, 5, 6, 0]; // Lunes...Domingo (en BD: 0=domingo)
+
 async function cargarHorario(targetId, categoria = null) {
   const el = document.getElementById(targetId);
   if (!el) return;
-  let query = supabaseClient.from('schedule').select('*').order('day_of_week').order('start_time');
+  let query = supabaseClient.from('schedule').select('*').order('start_time');
   if (categoria) query = query.eq('category', categoria);
   const { data, error } = await query;
   if (error || !data || data.length === 0) {
     el.innerHTML = '<div class="empty-state">El horario se publicará en breve.</div>';
     return;
   }
-  const filas = data.map(s => `
-    <tr>
-      <td>${DIAS[s.day_of_week]}</td>
-      <td>${s.start_time.slice(0,5)} – ${s.end_time.slice(0,5)}</td>
-      <td>${escapeHtml(s.label || (s.category === 'adultos' ? 'Adultos' : 'Menores'))}</td>
-    </tr>
-  `).join('');
-  el.innerHTML = `
-    <table class="schedule">
-      <thead><tr><th>Día</th><th>Hora</th><th>Clase</th></tr></thead>
-      <tbody>${filas}</tbody>
-    </table>
-  `;
+  el.innerHTML = `<div class="week-grid">` + ORDEN_DIAS_SEMANA.map(dow => {
+    const clases = data
+      .filter(s => s.day_of_week === dow)
+      .sort((a, b) => a.start_time.localeCompare(b.start_time));
+    return `
+      <div class="week-day">
+        <div class="week-day-header">${DIAS[dow]}</div>
+        <div class="week-day-body">
+          ${clases.length === 0 ? '<div class="week-empty">—</div>' : clases.map(s => `
+            <div class="class-chip ${s.category === 'menores' ? 'chip-menores' : 'chip-adultos'}">
+              <div class="chip-time">${s.start_time.slice(0,5)}–${s.end_time.slice(0,5)}</div>
+              <div class="chip-label">${escapeHtml(s.label || (s.category === 'adultos' ? 'Adultos' : 'Menores'))}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('') + `</div>`;
 }
 
 // ---------- GALERÍA: FOTOS ----------
