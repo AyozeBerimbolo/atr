@@ -156,7 +156,9 @@
             <option value="general">General</option>
           </select>
         </div>
-        <div class="form-row"><label>Nombre del plan</label><input type="text" id="priceName" placeholder="Ej. Bono mensual" required></div>
+        <div class="form-row"><label>Nombre del plan (Español)</label><input type="text" id="priceName" placeholder="Ej. Bono mensual" required></div>
+        <div class="form-row"><label>Nombre del plan (English) — opcional</label><input type="text" id="priceNameEn" placeholder="e.g. Monthly bundle"></div>
+        <div class="form-row"><label>Nombre del plan (Deutsch) — opcional</label><input type="text" id="priceNameDe" placeholder="z.B. Monatspaket"></div>
         <div class="form-row"><label>Precio</label><input type="number" step="0.01" id="priceAmount" required></div>
         <div class="form-row">
           <label>Periodo</label>
@@ -166,7 +168,9 @@
             <option value="pago único">pago único</option>
           </select>
         </div>
-        <div class="form-row"><label>Descripción (opcional)</label><textarea id="priceDescription"></textarea></div>
+        <div class="form-row"><label>Descripción (Español) — opcional</label><textarea id="priceDescription"></textarea></div>
+        <div class="form-row"><label>Descripción (English) — opcional</label><textarea id="priceDescriptionEn"></textarea></div>
+        <div class="form-row"><label>Descripción (Deutsch) — opcional</label><textarea id="priceDescriptionDe"></textarea></div>
         <button class="btn btn-gold" type="submit">Añadir</button>
         <div id="priceMsg" class="msg"></div>
       </form>
