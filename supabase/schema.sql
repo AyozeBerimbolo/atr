@@ -56,16 +56,32 @@ insert into links (key, url) values
 on conflict (key) do nothing;
 
 -- ---------- TARIFAS ----------
+-- name/description son el texto en español (obligatorio y siempre visible).
+-- name_en/name_de/description_en/description_de son opcionales: si se dejan
+-- vacíos, la web muestra el texto en español también para EN/DE.
 create table if not exists pricing_plans (
   id uuid primary key default gen_random_uuid(),
   category text not null check (category in ('adultos', 'menores', 'general')),
   name text not null,
+  name_en text,
+  name_de text,
   price numeric not null,
   period text not null default '/mes',
   description text,
+  description_en text,
+  description_de text,
   sort_order int not null default 0,
   created_at timestamptz not null default now()
 );
+
+-- Migración: si ya tenías el proyecto creado en Supabase antes de este cambio,
+-- ejecuta estas líneas una vez en el SQL Editor para añadir las columnas nuevas
+-- sin perder las tarifas que ya tengas guardadas (si la tabla es nueva, el
+-- create table de arriba ya las incluye y esto no hace nada):
+alter table pricing_plans add column if not exists name_en text;
+alter table pricing_plans add column if not exists name_de text;
+alter table pricing_plans add column if not exists description_en text;
+alter table pricing_plans add column if not exists description_de text;
 
 -- ---------- CLASE DE PRUEBA: configuracion (una sola fila, id = 1) ----------
 create table if not exists trial_offer (
