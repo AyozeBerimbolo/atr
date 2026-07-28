@@ -268,12 +268,18 @@ async function refrescarTarifasAdmin() {
   const el = document.getElementById('priceAdminList');
   const { data, error } = await supabaseClient.from('pricing_plans').select('*').order('sort_order').order('price');
   if (error) { el.innerHTML = ''; return; }
-  el.innerHTML = data.map(p => `
+  el.innerHTML = data.map(p => {
+    const faltan = [];
+    if (!p.name_en) faltan.push('EN');
+    if (!p.name_de) faltan.push('DE');
+    const aviso = faltan.length ? ` <span style="color:var(--text-muted); font-size:12px;">(sin traducir: ${faltan.join(', ')})</span>` : '';
+    return `
     <div class="row">
-      <span class="grow">${p.category} · ${p.name} · ${p.price}€ ${p.period}</span>
+      <span class="grow">${p.category} · ${p.name} · ${p.price}€ ${p.period}${aviso}</span>
       <button class="btn btn-danger btn-sm" onclick="borrarTarifa('${p.id}')">Borrar</button>
     </div>
-  `).join('') || '<div class="empty-state">Sin tarifas todavía.</div>';
+  `;
+  }).join('') || '<div class="empty-state">Sin tarifas todavía.</div>';
 }
 async function borrarTarifa(id) {
   if (!confirm('¿Borrar esta tarifa?')) return;
@@ -285,9 +291,13 @@ document.getElementById('formTarifa').addEventListener('submit', async (e) => {
   const registro = {
     category: document.getElementById('priceCategory').value,
     name: document.getElementById('priceName').value,
+    name_en: document.getElementById('priceNameEn').value || null,
+    name_de: document.getElementById('priceNameDe').value || null,
     price: parseFloat(document.getElementById('priceAmount').value),
     period: document.getElementById('pricePeriod').value,
     description: document.getElementById('priceDescription').value || null,
+    description_en: document.getElementById('priceDescriptionEn').value || null,
+    description_de: document.getElementById('priceDescriptionDe').value || null,
   };
   const { error } = await supabaseClient.from('pricing_plans').insert(registro);
   if (error) return mostrarMsg('priceMsg', 'Error: ' + error.message, true);
