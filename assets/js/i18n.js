@@ -311,6 +311,7 @@ function aplicarIdioma(lang) {
   document.querySelectorAll('.lang-switch button').forEach(b => {
     b.classList.toggle('active', b.dataset.lang === lang);
   });
+  document.dispatchEvent(new CustomEvent('idioma:cambiado', { detail: { lang } }));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
