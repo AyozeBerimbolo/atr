@@ -140,24 +140,57 @@ function formatearPrecio(valor, moneda = 'EUR') {
   return new Intl.NumberFormat('es-ES', { style: 'currency', currency: moneda, minimumFractionDigits: valor % 1 === 0 ? 0 : 2 }).format(valor);
 }
 
+const CATEGORIA_TARIFA_LABELS = {
+  es: { general: 'General', adultos: 'Adultos', menores: 'Menores' },
+  en: { general: 'General', adultos: 'Adults', menores: 'Kids' },
+  de: { general: 'Allgemein', adultos: 'Erwachsene', menores: 'Kinder' },
+};
+let _tarifasCache = null; // guarda los datos ya cargados para repintar al cambiar de idioma sin volver a consultar Supabase
+
+function _idiomaActual() {
+  return typeof leerIdiomaGuardado === 'function' ? leerIdiomaGuardado() : 'es';
+}
+
+function _pintarTarifas(targetId) {
+  const el = document.getElementById(targetId);
+  if (!el || !_tarifasCache || _tarifasCache.targetId !== targetId) return;
+  const { data } = _tarifasCache;
+  if (!data || data.length === 0) {
+    el.innerHTML = '<div class="empty-state">Las tarifas se publicarán en breve. Escríbenos para más información.</div>';
+    return;
+  }
+  const lang = _idiomaActual();
+  const labels = CATEGORIA_TARIFA_LABELS[lang] || CATEGORIA_TARIFA_LABELS.es;
+  el.innerHTML = data.map(p => {
+    const nombre = (lang === 'en' && p.name_en) || (lang === 'de' && p.name_de) || p.name;
+    const descripcion = (lang === 'en' && p.description_en) || (lang === 'de' && p.description_de) || p.description;
+    return `
+    <div class="pricing-card">
+      <div class="tag">${labels[p.category] || p.category}</div>
+      <h3>${escapeHtml(nombre)}</h3>
+      <div class="price">${formatearPrecio(p.price)}<span>${escapeHtml(p.period)}</span></div>
+      ${descripcion ? `<p>${escapeHtml(descripcion)}</p>` : ''}
+    </div>
+  `;
+  }).join('');
+}
+
 async function cargarTarifas(targetId, categoria = null) {
   const el = document.getElementById(targetId);
   if (!el) return;
   let query = supabaseClient.from('pricing_plans').select('*').order('sort_order').order('price');
   if (categoria) query = query.eq('category', categoria);
   const { data, error } = await query;
-  if (error || !data || data.length === 0) {
+  if (error) {
     el.innerHTML = '<div class="empty-state">Las tarifas se publicarán en breve. Escríbenos para más información.</div>';
     return;
   }
-  el.innerHTML = data.map(p => `
-    <div class="pricing-card">
-      <div class="tag">${p.category}</div>
-      <h3>${escapeHtml(p.name)}</h3>
-      <div class="price">${formatearPrecio(p.price)}<span>${escapeHtml(p.period)}</span></div>
-      ${p.description ? `<p>${escapeHtml(p.description)}</p>` : ''}
-    </div>
-  `).join('');
+  _tarifasCache = { targetId, data };
+  _pintarTarifas(targetId);
+  if (!window._tarifasLangListener) {
+    document.addEventListener('idioma:cambiado', () => _pintarTarifas(targetId));
+    window._tarifasLangListener = true;
+  }
 }
 
 // ---------- CLASE DE PRUEBA ----------
